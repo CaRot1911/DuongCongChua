@@ -1,0 +1,191 @@
+.btn-filter :hover {
+    color: #8A8A8A;
+}
+
+
+.row-header {
+    display: flex;
+}
+
+.card-header .row-header:first-child>div:last-child {
+    margin-left: 30px;
+}
+
+.search-input {
+    display: flex !important;
+    align-items: center;
+    width: 307px !important;
+}
+
+.search-input .material-icons {
+    padding-left: 15px !important;
+    ;
+}
+
+.search-input input {
+    border: none;
+    outline: none;
+}
+
+.edit-options {
+    display: flex;
+
+}
+
+.card-header .row-header:last-child {
+    justify-content: space-between !important;
+}
+
+.dataTables_filter {
+    visibility: hidden;
+}
+
+#icon_search_account {
+    cursor: pointer;
+    width: 20px;
+}
+
+#icon_search_department {
+    cursor: pointer;
+}
+
+.material-icons {
+    border: none !important;
+    font-size: 20px !important;
+}
+
+
+.mb-3.from-control-filter-department {
+    margin-left: 35px;
+    display: flex;
+    width: 250px;
+}
+
+.form-lable {
+    width: 150px;
+}
+
+.btn-filter {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+#select_type_department {
+    width: 140px;
+}
+
+#input_department {
+    margin-left: 35px;
+}
+
+
+.form-control.select {
+    padding-right: 25px;
+}
+
+.search-input .icon-close {
+    margin-right: 18px;
+}
+
+.icon-actions {
+    font-size: 20px !important;
+    cursor: pointer;
+    margin-right: 10px;
+    display: block;
+}
+
+
+.btn-Actions {
+    border: none !important;
+    background: none;
+}
+
+.btn-actions {
+    border: none;
+    background: none;
+}
+
+.btn-actions.delete :hover {
+    color: red;
+}
+
+.btn-actions.edit :hover {
+    color: rgb(175, 140, 93);
+}
+
+.btn-actions.delete-account :hover {
+    color: red;
+}
+
+.btn-actions.edit-account :hover {
+    color: rgb(175, 140, 93);
+}
+
+#select_role_account {
+    width: 130px;
+}
+
+#select_department_account {
+    width: 155px;
+}
+
+.icon-actions.icon-close.select-role {
+    font-size: 10px !important;
+    float: right;
+    padding-top: 10px;
+    margin-left: -28px;
+}
+
+.mb-3.from-control-filter {
+    display: flex;
+}
+
+.icon-actions.icon-close.select-department {
+    font-size: 10px !important;
+    float: right;
+    padding-top: 10px;
+    margin-left: -28px;
+
+}
+
+.icon-actions.icon-close.search {
+    font-size: 10px !important;
+
+}
+
+.icon-close {
+    font-size: 10px !important;
+    float: right;
+    padding-top: 1px;
+    margin-left: 38px;
+
+}
+
+.material-icons.filler {
+    float: right;
+}
+
+.icon-close.date {
+    font-size: 10px !important;
+    float: right;
+    padding-top: 10px;
+    margin-left: -45px;
+
+}
+
+.icon-close .type-department {
+    font-size: 10px !important;
+    float: right;
+    padding-top: 9px;
+    margin-left: -27px;
+}
+
+#close_type_department {
+    padding-top: 10px;
+    margin-left: -26px;
+}
+
+#create_type_department {
+    width: 100% !important;
+}

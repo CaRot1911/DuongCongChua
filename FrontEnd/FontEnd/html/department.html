@@ -1,0 +1,140 @@
+<div class="container-fluid p-0">
+    <h1>Department's List</h1>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row-header">
+                        <div class="mb-3 from-control-filter-department">
+                            <!-- minCreateDate -->
+                            <label class="form-lable">Min Date</label>
+                            <input class="form-control" type="date" name="datesingle" id="minCreateDate">
+                            <i class="material-icons icon-actions icon-close date" id="close_mindate">&#xe5cd;</i>
+                        </div>
+                        <div class="mb-3 from-control-filter-department">
+                            <!-- maxCreateDate -->
+                            <label class="form-lable">Max Date</label>
+                            <input class="form-control" type="date" name="datesingle" id="maxCreateDate">
+                            <i class="material-icons icon-actions icon-close date" id="close_maxdate">&#xe5cd;</i>
+                        </div>
+                        <div class="mb-3 from-control-filter-department">
+                            <select class="form-control" id="select_type_department">
+                                <option value="none" selected hidden>Type</option>
+                                <option value="Dev">Dev</option>
+                                <option value="Test">Test</option>
+                                <option value="PM">PM</option>
+                                <option value="ScrumMaster">ScrumMaster</option>
+                            </select>
+                            <i class="material-icons icon-actions icon-close type-department"
+                                id="close_type_department">&#xe5cd;</i>
+                        </div>
+                        <div class="mb-3 from-control-filter-department">
+                            <button class="btn-filter" id="btn_fiter">
+                                <i class="material-icons material-icons filler">&#xeb32</i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row-header">
+                        <div class="form-control search-input" id="input_department_name">
+                            <input id="search_input_department" placeholder="Search By Name...." type="text">
+                            <i class="material-icons icon-actions icon-close" id='close_search_name'>&#xe5cd</i>
+                            <i id="icon_search_department" class="material-icons ">&#xe8b6</i>
+                        </div>
+                        <div class="edit-options">
+                            <button class="btn-Actions" id="btn_refech">
+                                <i class="material-icons icon-actions">&#xe86a</i>
+                            </button>
+                            <button class="btn-Actions" id="btn_add_department" data-toggle="modal"
+                                data-target="#defaultModalCreateDepartment">
+                                <i class="material-icons icon-actions">&#xea4d</i>
+                            </button>
+                            <button class="btn-Actions" id="btn_delete_all_department">
+                                <i class="material-icons icon-actions">&#xe92e</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table id="datatables_departments" class="table table-striped" style="width:  100%;">
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/department.js">
+    // $(document).ready(function () {
+
+    //     function getListDepartments() {
+    //         let url = 'http://localhost:8080/departments/v1/page'
+    //         $.ajax({
+    //             url: url,
+    //             type: 'GET',
+    //             contentType: 'application/json',
+    //             dataType: 'json',
+
+    //             success: function (response) {
+    //                 console.log(response)
+    //                 createDataTableDepartment(response.content)
+    //             },
+    //             error: function (error) {
+    //                 console.log(error)
+    //             }
+
+    //         })
+    //     }
+
+    //     function createDataTableDepartment(listDepartments) {
+    //         let departments = []
+
+    //         for (let i = 0; i < listDepartments.length; i++) {
+    //             let temp = []
+    //             temp[0] = listDepartments[i].id
+    //             temp[1] = listDepartments[i].name
+    //             temp[2] = listDepartments[i].totalMember
+    //             temp[3] = listDepartments[i].type
+    //             temp[4] = listDepartments[i].createDate
+    //             temp[5] = ''
+    //             departments.push(temp)
+    //         }
+    //         console.log(departments)
+
+    //         dataTable = $('#datatables_departments').DataTable({
+    //             data: departments,
+
+    //             columns: [
+    //                 { title: "" },
+    //                 { title: "Name" },
+    //                 { title: "Total Member" },
+    //                 { title: "Type" },
+    //                 { title: "Create Date" },
+    //                 { title: "Actions" },
+    //             ],
+
+    //             "columnDefs": [
+    //                 {
+    //                     "targets": 0,
+    //                     "visible": false
+    //                 },
+    //                 {
+    //                     "targets": 5,
+    //                     "width": 100,
+    //                     "render": function () {
+    //                         return '<td>' +
+    //                             '<button class="btn-actions edit"><i class="material-icons">&#xe3c9</i></button>' +
+    //                             '<button class="btn-actions delete"><i class="material-icons">&#xe872</i></button>' +
+    //                             '<td>'
+    //                     }
+    //                 }
+    //             ]
+    //         })
+    //     }
+
+    //     // Call API get list accounts
+    //     getListDepartments()
+    // })
+</script>

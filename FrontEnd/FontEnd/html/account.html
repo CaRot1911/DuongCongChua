@@ -1,0 +1,189 @@
+<div class="container-fluid p-0">
+    <h1>Account's List</h1>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row-header">
+                        <div class="mb-3 from-control-filter">
+                            <select class="form-control mb-3" id="select_role_account">
+                                <option value="none" selected hidden>Role</option>
+                                <option value="ADMIN">ADMIN</option>
+                                <option value="MANAGER">MANAGER</option>
+                                <option value="EMPLOYEE">EMPLOYEE</option>
+                            </select>
+                            <i class="material-icons icon-actions icon-close select-role" id="close_role">&#xe5cd</i>
+                        </div>
+                        <div class="mb-3 from-control-filter">
+                            <select class="form-control mb-3" id="select_department_account">
+                                <option value="0" selected hidden>Department</option>
+                            </select>
+                            <i class="material-icons icon-actions icon-close select-department" id="close_department">&#xe5cd</i>
+                        </div>
+                    </div>
+                    <div class="row-header">
+                        <div class="form-control search-input">
+                            <input id="search_input_account" placeholder="Search By Name...." type="text">
+                            <i class="material-icons icon-actions icon-close search" id="close_input">&#xe5cd</i>
+                            <i id="icon_search_account" class="material-icons ">&#xe8b6</i>
+                        </div>
+                        <div class="edit-options">
+                            <button class="btn-Actions" id="btn_refech">
+                                <i class="material-icons icon-actions">&#xe863</i>
+                            </button>
+                            <button class="btn-Actions" id="btn_add" data-toggle="modal"
+                                data-target="#defaultModalCreate">
+                                <i class="material-icons icon-actions">&#xea20</i>
+                            </button>
+                            <button class="btn-Actions icon-actions" id="btn_delete_all" >
+                                <i class="material-icons icon-actions">&#xE872</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table id="datatables_accounts" class="table table-striped" style="width:  100%;">
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/account.js">
+    // $(document).ready(function () {
+
+    //     function getListDepartments() {
+    //         let url = 'http://localhost:8080/departments/v1'
+    //         $.ajax({
+    //             url: url,
+    //             type: 'GET',
+    //             contentType: 'application/json',
+    //             dataType: 'json',
+
+    //             success: function(response) {
+    //                 console.log(response)
+
+    //                 $.each(response, function(index, item) {
+    //                     $('#select_department_account')
+    //                     .append(
+    //                         $('<option></option>')
+    //                             .attr("value", item.id)
+    //                             .text(item.name)
+    //                     )
+    //                 })
+                    
+                    
+    //             },
+    //             error: function(error) {
+    //                 console.log(error)
+    //             }
+
+    //         })
+    //     }
+
+    //     getListDepartments()
+    //     var PAGE_NUMBER = 1
+    //     var PAGE_SIZE = 10
+    //     var SORT = 'id,asc'
+
+    //     function getListAccounts(roleInput, departmentIdInput, searchInput, pageNumberInput, sizeInput, sortInput) {
+    //         let url = 'http://localhost:8080/accounts/v1/page'
+    //         $.ajax({
+    //             url: url,
+    //             type: 'GET',
+    //             contentType: 'application/json',
+    //             dataType: 'json',
+
+    //             data: {
+    //                 role: roleInput,
+    //                 departmentId: departmentIdInput,
+    //                 search: searchInput,
+    //                 pageNumber: pageNumberInput,
+    //                 size: sizeInput,
+    //                 sort: sortInput
+    //             },
+
+    //             success: function(response) {
+    //                 //console.log(response)
+    //                 createTableAccount(response.content)
+    //             },
+    //             error: function(error) {
+    //                 console.log(error)
+    //             }
+
+    //         })
+    //     }
+
+    //     function createTableAccount(listAccounts) {
+    //         let accounts = []
+
+    //         for (let i = 0; i < listAccounts.length; i ++) {
+    //             let temp = []
+    //             // temp[0] = listAccounts[i].firstName + ' ' + listAccounts[i].lastName
+    //             // temp[0] = listAccounts[i].userName
+    //             temp[0] = listAccounts[i].fullName
+    //             temp[1] = listAccounts[i].userName
+    //             temp[2] = listAccounts[i].role
+    //             temp[3] = listAccounts[i].departmentName
+    //             temp[4] = ''
+    //             accounts.push(temp)
+    //         }
+
+    //         //console.log(accounts)
+
+    //         dataTable = $('#datatables_accounts').DataTable({
+    //             data: accounts,
+
+    //             columns: [
+    //                 {title: "Full Name"},
+    //                 {title: "User Name"},
+    //                 {title: "Role"},
+    //                 {title: "Department Name"},
+    //                 {title: "Actions"},
+    //             ],
+
+    //             "columnDefs": [
+    //                 {
+    //                     "targets": 4,
+    //                     "width": 100,
+    //                     "render": function() {
+    //                         return '<td>' +
+    //                             '<button class="btn-actions edit"><i class="material-icons">&#xe3c9</i></button>' +
+    //                             '<button class="btn-actions delete"><i class="material-icons">&#xe872</i></button>' +
+    //                         '<td>'
+    //                     }
+    //                 }
+    //             ]
+    //         })
+    //     }
+
+    //     //Call API get list accounts
+    //     getListAccounts('', 0, '', PAGE_NUMBER, PAGE_SIZE, SORT)
+
+    //     $('#icon_search_account').click(function() {
+    //         let role = $('#select_role_account').val()
+    //         let departmentId = $('#select_department_account').val()
+    //         let search = $('#search_input_account').val()
+
+    //         console.log('departmentId: ' + departmentId)
+    //         console.log(role)
+
+    //         dataTable.destroy()
+
+    //         //Note
+    //         if (departmentId === 'none') departmentId = 0
+    //         else departmentId = parseInt(departmentId)
+
+    //         if (search === '') search = null
+    //         if (role === 'none') role = ''
+
+
+    //         getListAccounts(role, departmentId, search, PAGE_NUMBER, PAGE_SIZE, SORT)
+    //         alert("Click search")
+    //     })
+    // })
+</script>
